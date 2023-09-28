@@ -6,8 +6,14 @@ import Confetti from 'react-confetti';
 
 function Game() {
   const [dice, setDice] = useState(allNewDice());
-  const [tenzies, setTenzies] = useState(false);
+  const [tenzies, setTenzies] = useState(true);
   const [rolls, setRolls] = useState(0);
+  const [ gameResults, setGameResults ] = useState(
+    { 
+    Rolls: 0,
+    Date: ""
+    }
+  )
 
 
   useEffect(() => {
@@ -58,6 +64,8 @@ function Game() {
        die
     }))
    }
+
+   
  
    function restartGame() {
      setDice(allNewDice());
@@ -76,9 +84,15 @@ function Game() {
    )
  
    const button = tenzies ? 
+   <div>
    <button className="game--button" onClick={restartGame}>
      Restart Game
    </button>
+   <button className='save--button'>
+   Save Results
+   </button>
+   </div>
+   
    : 
    <button className="game--button" onClick={rollDice}>
      Roll
