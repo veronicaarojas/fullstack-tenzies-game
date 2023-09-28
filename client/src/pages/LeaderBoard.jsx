@@ -4,12 +4,16 @@ import { useEffect, useState } from 'react';
 function LeaderBoard() {
   const [records, setRecords] = useState([]);
   const reformattedData = reformatDates(records);
-  console.log(reformattedData);
+  
 
   useEffect(() => {
     getRecords();
-
+    
   }, []);
+
+  useEffect(() => {
+    reformatDates(records);
+  }, [records]);
 
   const getRecords = async () => {
     try {
@@ -37,9 +41,12 @@ function LeaderBoard() {
 
   return (
     <main>
-      <div>
-        leaderboard
-      </div>
+      
+        {reformattedData.map((item) => 
+          <div key={item.RollID} className='text'> rolls: {item.Rolls} Date: {item.Date}</div>
+        )}
+      
+      
     </main>
   )
 }
