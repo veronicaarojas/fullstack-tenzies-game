@@ -1,42 +1,118 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  background-color: #0B2434;
+  padding: 20px;
+  font-family: 'Karla', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:  #F5F5F5;
+  border-radius: 10px;
+  height: 400px;
+  max-width: 800px;
+  margin-top: 20px;
+  padding: 20px;
+  
+}
+
+
+.app--title {
+  color: #2B283A;
   text-align: center;
+  font-weight: 700;
+  font-family: 'Karla', sans-serif;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app--description {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  max-width: 240px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  color: #4A4E74;
+  font-weight: 400;
+  font-size: 15px;
+
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.roll--number {
+  font-family: 'Karla', sans-serif;
+  color:  #4A4E74;
+}
+.dice--container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 40px 40px 40px 40px 40px;
+  gap: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.die {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  color: #2B283A;
+  font-size: 20.589px;
+  border-radius: 3.813px;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
-.card {
-  padding: 2em;
+
+
+
+button {
+  margin-top: 17px;
+  width: 92.16px;
+  height: 40px;
+  background-color: #5035FF;
+  border-radius: 3.81px;
+  border: none;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  color: white;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.read-the-docs {
-  color: #888;
+nav {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.link--button {
+  background-color: #5035FF;
+  height: 30px;
+  width: max-content;
+  padding: 3px;
+  border-radius: 3.81px;
+  display: flex;
+  align-items: center;
 }
