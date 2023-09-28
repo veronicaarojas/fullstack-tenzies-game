@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 
 function LeaderBoard() {
   const [records, setRecords] = useState([]);
+  const reformattedData = reformatDates(records);
+  console.log(reformattedData);
 
   useEffect(() => {
     getRecords();
 
-  }, [records]);
+  }, []);
 
   const getRecords = async () => {
     try {
@@ -20,6 +22,19 @@ function LeaderBoard() {
       console.log(error);
     }
   }
+
+  function reformatDates(records) {
+    return records.map(item => {
+      const originalDate = new Date(item.Date);
+      const year = originalDate.getFullYear();
+      const month = String(originalDate.getMonth() + 1).padStart(2, '0');
+      const day = String(originalDate.getDate()).padStart(2, '0');
+      const formattedDate = `${year}-${month}-${day}`;
+      
+      return { ...item, Date: formattedDate };
+    });
+  }
+
   return (
     <main>
       <div>
