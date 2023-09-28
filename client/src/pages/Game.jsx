@@ -6,14 +6,22 @@ import Confetti from 'react-confetti';
 
 function Game() {
   const [dice, setDice] = useState(allNewDice());
-  const [tenzies, setTenzies] = useState(true);
+  const [tenzies, setTenzies] = useState(false);
   const [rolls, setRolls] = useState(0);
   const [ gameResults, setGameResults ] = useState(
     { 
     Rolls: 0,
     Date: ""
     }
-  )
+  );
+
+const currentDate = new Date();
+const year = currentDate.getFullYear();
+const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Add 1 to month (months are zero-based) and pad with 0 if needed
+const day = String(currentDate.getDate()).padStart(2, '0');
+const formattedDate = `${year}-${month}-${day}`;
+
+
 
 
   useEffect(() => {
@@ -65,12 +73,38 @@ function Game() {
     }))
    }
 
+   function saveResults() {
+    
+    submitResults({
+      Rolls: rolls,
+      Date: formattedDate
+    });
+
+   }
+
+   const submitResults = async (gameResults) => {
+    try {
+      const response = await fetch('http://localhost:3001/save-rolls', {
+        method: "POST", 
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(gameResults)
+      });
+      if(response.ok) console.log('post successful')
+    } catch (error) {
+      console.log(error);
+    }
+   }
+
    
  
    function restartGame() {
      setDice(allNewDice());
      setTenzies(prev => !prev);
      setRolls(0);
+     setGameResults({
+      rolls: 0,
+      Date: new Date()
+     })
    }
  
    
@@ -88,7 +122,9 @@ function Game() {
    <button className="game--button" onClick={restartGame}>
      Restart Game
    </button>
-   <button className='save--button'>
+   <button className='save--button' 
+   onClick={saveResults}
+   >
    Save Results
    </button>
    </div>
