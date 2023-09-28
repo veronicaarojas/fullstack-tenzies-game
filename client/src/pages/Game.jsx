@@ -76,11 +76,11 @@ function Game() {
    )
  
    const button = tenzies ? 
-   <button onClick={restartGame}>
+   <button className="game--button" onClick={restartGame}>
      Restart Game
    </button>
    : 
-   <button onClick={rollDice}>
+   <button className="game--button" onClick={rollDice}>
      Roll
    </button>
  

@@ -9,11 +9,11 @@ function LeaderBoard() {
 
   }, [records]);
 
-  const getRecords = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/leaderboard')
-    }
-  }
+  // const getRecords = async () => {
+  //   try {
+  //     const response = await fetch('http://localhost:3001/leaderboard')
+  //   }
+  // }
   return (
     <main>
       <div>
