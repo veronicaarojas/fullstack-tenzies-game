@@ -2,9 +2,11 @@ const express = require("express");
 const mysql = require("mysql");
 const cors = require('cors');
 require('dotenv').config();
+const bodyParser = require('body-parser'); 
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 
 
 const db = mysql.createConnection({
@@ -24,6 +26,18 @@ app.get('/leaderboard', (req, res) => {
   db.query(sql, (err, data) => {
     if(err) return res.json(err);
     return res.json(data);
+  })
+});
+
+app.post('/save-rolls', (req, res) => {
+  const {Rolls, Date} = req.body;
+
+  const sql = `INSERT INTO leaderboard (Rolls, Date) VALUES ('${Rolls}', '${Date}')`;
+  db.query(sql, (err, result) => {
+    if(err) {
+      return res.json(err);
+    }
+    return res.json({ message: "Record inserted"})
   })
 })
 
