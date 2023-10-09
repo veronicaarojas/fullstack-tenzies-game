@@ -22,7 +22,7 @@ app.get('/', (re, res) => {
 });
 
 app.get('/leaderboard', (req, res) => {
-  const sql = "SELECT * FROM leaderboard";
+  const sql = "SELECT * FROM leaderboard ORDER BY Rolls ASC";
   db.query(sql, (err, data) => {
     if(err) return res.json(err);
     return res.json(data);

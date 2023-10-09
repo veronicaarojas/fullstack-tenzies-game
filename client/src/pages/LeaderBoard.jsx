@@ -54,12 +54,6 @@ function LeaderBoard() {
       return { ...item, Date: formattedDate };
     });
 
-    formattedDates.sort((a, b) => {
-      const scoreA = a.Rolls;
-      const scoreB = b.Rolls;
-      return scoreA - scoreB;
-    })
-
     return formattedDates;
   }
 
