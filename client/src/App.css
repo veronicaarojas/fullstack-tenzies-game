@@ -20,7 +20,6 @@ main {
   max-width: 800px;
   margin: 20px;
   padding: 40px;
-  
 }
 
 
@@ -138,6 +137,31 @@ a:visited {
   justify-content: center;
 }
 
-.text {
-  color: #0B2434
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2px
+}
+
+.leaderboard--titles {
+  color: #0B2434;
+  display: grid;
+  grid-template-columns: 100px 25px;
+  font-weight: bold;
+}
+
+.leaderboard--item {
+  color: #0B2434; 
+  display: grid;
+  grid-template-columns: 110px 25px 20px;
+  gap: 20px;
+  border: solid;
+  border-width: 0.5px;
+  border-radius: 5px;
+  border-color: gray;
+  
+}
+
+.leaderboard--date {
+  padding-left: 6px;
 }

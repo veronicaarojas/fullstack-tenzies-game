@@ -41,10 +41,36 @@ function LeaderBoard() {
 
   return (
     <main>
+      <div className='leaderboard--titles'>
+    <div>
+      Date
+    </div>
+    <div>
+      Rolls
+    </div>
+      </div>
+
+      <div className='leaderboard' >
+
       
         {reformattedData.map((item) => 
-          <div key={item.RollID} className='text'> rolls: {item.Rolls} Date: {item.Date}</div>
+          <div key={item.RollID} className='leaderboard--item'> 
+
+          <div className='leaderboard--date'>
+          {item.Date}
+          </div>
+          <div>
+          {item.Rolls}
+          </div>
+
+          <button>
+            delete
+          </button>
+          
+          
+          </div>
         )}
+        </div>
       
       
     </main>
