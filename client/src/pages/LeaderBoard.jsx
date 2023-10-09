@@ -10,7 +10,6 @@ function LeaderBoard() {
 
   useEffect(() => {
     getRecords();
-    
   }, []);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ function LeaderBoard() {
   }
 
   function reformatDates(records) {
-    return records.map(item => {
+    const formattedDates = records.map(item => {
       const originalDate = new Date(item.Date);
       const year = originalDate.getFullYear();
       const month = String(originalDate.getMonth() + 1).padStart(2, '0');
@@ -39,6 +38,14 @@ function LeaderBoard() {
       
       return { ...item, Date: formattedDate };
     });
+
+    formattedDates.sort((a, b) => {
+      const scoreA = a.Rolls;
+      const scoreB = b.Rolls;
+      return scoreA - scoreB;
+    })
+
+    return formattedDates;
   }
 
   return (
