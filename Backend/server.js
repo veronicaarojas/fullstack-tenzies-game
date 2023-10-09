@@ -39,6 +39,22 @@ app.post('/save-rolls', (req, res) => {
     }
     return res.json({ message: "Record inserted"})
   })
+});
+
+app.delete('/delete-roll/:RollID', (req, res) => {
+  const { RollID } = req.params;
+
+  const sql = `DELETE FROM leaderboard WHERE RollID = ${RollID}`;
+  db.query(sql, (err, result) => {
+    if(err) {
+      return res.json(err);
+    }
+    if(result.affectedRows === 0) {
+      return res.status(404).json({ message: "Record not found"});
+    }
+
+    return res.json({ message: `Record ${RollID} deleted`});
+  })
 })
 
 app.listen(3001, () => {
