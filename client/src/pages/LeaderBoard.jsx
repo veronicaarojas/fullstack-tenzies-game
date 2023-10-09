@@ -43,7 +43,6 @@ function LeaderBoard() {
       const data = await response.json();
       setRecords(data.records);
       setTotalPages(data.totalPages);
-      
     } catch(error) {
       console.log(error);
     }
