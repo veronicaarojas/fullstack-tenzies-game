@@ -153,12 +153,13 @@ a:visited {
 .leaderboard--item {
   color: #0B2434; 
   display: grid;
-  grid-template-columns: 110px 25px 50px;
+  grid-template-columns: 110px 30px 50px;
   gap: 20px;
   border: solid;
   border-width: 0.5px;
   border-radius: 5px;
   border-color: gray;
+  padding: 5px;
 }
 
 .leaderboard--date {
@@ -168,6 +169,8 @@ a:visited {
 .delete--button {
   border-radius: 5px;
   height: 25px;
+  width: 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
