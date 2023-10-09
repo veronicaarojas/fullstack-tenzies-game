@@ -26,7 +26,7 @@ app.get('/leaderboard', (req, res) => {
   
   const offset = (page - 1) * pageSize;
   const sql = "SELECT * FROM leaderboard ORDER BY Rolls ASC LIMIT ?, ?";
-  db.query(sql, [offest, parseInt(pageSize)], (err, data) => {
+  db.query(sql, [offset, parseInt(pageSize)], (err, data) => {
     if(err) return res.json(err);
     return res.json(data);
   })
