@@ -153,15 +153,21 @@ a:visited {
 .leaderboard--item {
   color: #0B2434; 
   display: grid;
-  grid-template-columns: 110px 25px 20px;
+  grid-template-columns: 110px 25px 50px;
   gap: 20px;
   border: solid;
   border-width: 0.5px;
   border-radius: 5px;
   border-color: gray;
-  
 }
 
 .leaderboard--date {
   padding-left: 6px;
+}
+
+.delete--button {
+  border-radius: 5px;
+  height: 25px;
+  display: flex;
+  align-items: center;
 }

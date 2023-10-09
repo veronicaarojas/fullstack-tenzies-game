@@ -1,5 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 
 function LeaderBoard() {
   const [records, setRecords] = useState([]);
@@ -63,8 +65,8 @@ function LeaderBoard() {
           {item.Rolls}
           </div>
 
-          <button>
-            delete
+          <button className='delete--button'>
+          <FontAwesomeIcon icon={faTrashCan} />
           </button>
           
           
