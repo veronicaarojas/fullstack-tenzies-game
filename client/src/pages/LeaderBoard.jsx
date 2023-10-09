@@ -7,7 +7,11 @@ function LeaderBoard() {
   const [records, setRecords] = useState([]);
   const reformattedData = reformatDates(records);
   const [hoveredScores, setHoveredScores] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
+
+  
   const handleMouseOver = (RollID) => {
     setHoveredScores((prevHoveredScores) => ({
       ...prevHoveredScores,
@@ -33,11 +37,13 @@ function LeaderBoard() {
 
   const getRecords = async () => {
     try {
-      const response = await fetch('http://localhost:3001/leaderboard', {
+      const response = await fetch(`http://localhost:3001/leaderboard?page=${currentPage}&pageSize=5`, {
         method: "GET"
       });
       const data = await response.json();
-      setRecords(data);
+      setRecords(data.records);
+      setTotalPages(data.totalPages);
+      
     } catch(error) {
       console.log(error);
     }

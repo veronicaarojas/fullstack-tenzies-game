@@ -28,9 +28,28 @@ app.get('/leaderboard', (req, res) => {
   const sql = "SELECT * FROM leaderboard ORDER BY Rolls ASC LIMIT ?, ?";
   db.query(sql, [offset, parseInt(pageSize)], (err, data) => {
     if(err) return res.json(err);
-    return res.json(data);
+
+    const totalRecordsSql = 'SELECT COUNT(*) AS total FROM leaderboard';
+    db.query(totalRecordsSql, (err, totalCountResult) => {
+      if (err) {
+        return res.status(500).json({ error: 'Internal Server Error' });
+      }
+
+      const totalRecords = totalCountResult[0].total;
+
+
+      const totalPages = Math.ceil(totalRecords / pageSize);
+    return res.json({
+      records: data,
+      currentPage: parseInt(page),
+      totalPages,
+    });
   })
 });
+});
+
+
+
 
 app.post('/save-rolls', (req, res) => {
   const {Rolls, Date} = req.body;
