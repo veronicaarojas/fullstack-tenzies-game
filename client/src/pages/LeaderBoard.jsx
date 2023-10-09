@@ -58,7 +58,7 @@ function LeaderBoard() {
   }
 
   function handleDelete(RollID) {
-    deleteRecord(RollID)
+    deleteRecord(RollID);
   }
 
   const deleteRecord = async (RollID) => {
