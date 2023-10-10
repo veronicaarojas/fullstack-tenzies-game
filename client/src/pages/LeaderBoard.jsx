@@ -9,6 +9,7 @@ function LeaderBoard() {
   const [hoveredScores, setHoveredScores] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  
 
 
   
@@ -29,7 +30,7 @@ function LeaderBoard() {
 
   useEffect(() => {
     getRecords();
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
     reformatDates(records);
@@ -79,6 +80,14 @@ function LeaderBoard() {
 
   }
 
+  function previousPage() {
+    setCurrentPage(prevPage => prevPage - 1)
+  }
+
+  function nextPage() {
+    setCurrentPage(prevPage => prevPage + 1)
+  }
+
   return (
     <main>
       <div className='leaderboard--titles'>
@@ -117,6 +126,27 @@ function LeaderBoard() {
           
           </div>
         )}
+        <div className='pagination--section'>
+          <div className='page--indicator'>
+            {currentPage} of {totalPages}
+          </div>
+          <div>
+          <button 
+        onClick={previousPage}
+        disabled={currentPage === 1}
+        >
+          -
+        </button>
+        <button
+        onClick={nextPage}
+        disabled={currentPage === totalPages}>
+          +
+        </button>
+          </div>
+        
+        </div>
+
+      
         </div>
       
       
