@@ -146,7 +146,7 @@ a:visited {
 .leaderboard--titles {
   color: #0B2434;
   display: grid;
-  grid-template-columns: 100px 25px;
+  grid-template-columns: 110px 30px 50px;
   font-weight: bold;
 }
 
