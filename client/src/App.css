@@ -185,3 +185,8 @@ a:visited {
 .page--indicator {
   color: #0B2434;
 }
+
+.pagination--buttons {
+  display: flex;
+  gap: 5px;
+}

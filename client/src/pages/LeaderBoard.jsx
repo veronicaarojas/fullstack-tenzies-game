@@ -130,7 +130,8 @@ function LeaderBoard() {
           <div className='page--indicator'>
             {currentPage} of {totalPages}
           </div>
-          <div>
+          <div
+          className='pagination--buttons'>
           <button 
         onClick={previousPage}
         disabled={currentPage === 1}
